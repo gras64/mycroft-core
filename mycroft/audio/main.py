@@ -472,7 +472,7 @@ def main():
     ws.once('open', load_services_callback)
     try:
         ws.run_forever()
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         LOG.exception(e)
         speech.shutdown()
         sys.exit()
