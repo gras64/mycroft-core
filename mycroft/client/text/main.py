@@ -179,7 +179,7 @@ class LogMonitorThread(Thread):
                     mergedLog.append(self.logid + line.strip())
                 else:
                     if bSimple:
-                        print line.strip()
+                        print(line.strip())
                     else:
                         filteredLog.append(self.logid + line.strip())
                         mergedLog.append(self.logid + line.strip())
@@ -845,10 +845,10 @@ def gui_main(stdscr):
             # else:
             #    line += str(c)
 
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         # User hit Ctrl+C to quit
         pass
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         LOG.exception(e)
     finally:
         scr.erase()
@@ -873,10 +873,10 @@ def simple_cli():
             ws.emit(
                 Message("recognizer_loop:utterance",
                         {'utterances': [line.strip()]}))
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         # User hit Ctrl+C to quit
         print("")
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         LOG.exception(e)
         event_thread.exit()
         sys.exit()
@@ -908,7 +908,6 @@ def main():
         curses.wrapper(gui_main)
         curses.endwin()
         save_settings()
-
 
 if __name__ == "__main__":
     main()
